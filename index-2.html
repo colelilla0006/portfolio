@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cole Lilla</title>
+<style>
+  :root{
+    --blue:#2b5fa8;
+    --text:#222;
+    --muted:#555;
+    --bg:#ffffff;
+    --line:#ddd;
+    --soft:#f6f7f9;
+  }
+  *{ box-sizing:border-box; }
+  body{
+    margin:0;
+    font-family: Arial, Helvetica, sans-serif;
+    color:var(--text);
+    background:var(--bg);
+    line-height:1.6;
+  }
+  .wrap{ max-width:800px; margin:0 auto; padding:0 20px; }
+
+  header{
+    background:var(--blue);
+    color:#fff;
+    padding:18px 0;
+  }
+  header .wrap{ display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; }
+  header h1{ margin:0; font-size:1.3rem; }
+  nav ul{ list-style:none; display:flex; gap:18px; margin:0; padding:0; }
+  nav a{ color:#fff; text-decoration:none; font-size:.95rem; }
+  nav a:hover{ text-decoration:underline; }
+
+  section{ padding:40px 0; border-bottom:1px solid var(--line); }
+  section:last-of-type{ border-bottom:none; }
+
+  h2{ color:var(--blue); font-size:1.5rem; margin-top:0; }
+
+  .intro{ display:flex; gap:24px; align-items:center; flex-wrap:wrap; }
+  .intro img{ width:150px; height:150px; object-fit:cover; border-radius:6px; border:1px solid var(--line); }
+  .intro p{ flex:1; min-width:250px; margin:0; color:var(--muted); }
+
+  .video-wrap{ max-width:640px; margin-top:16px; }
+  .video-wrap iframe{ width:100%; aspect-ratio:16/9; border:1px solid var(--line); }
+  .video-link{
+    display:inline-block;
+    background:var(--blue);
+    color:#fff;
+    text-decoration:none;
+    padding:12px 20px;
+    border-radius:5px;
+    font-size:.95rem;
+  }
+  .video-link:hover{ background:#234a86; }
+
+  table.resume{ width:100%; border-collapse:collapse; margin-top:10px; }
+  table.resume th, table.resume td{ text-align:left; padding:8px 10px; border-bottom:1px solid var(--line); vertical-align:top; }
+  table.resume th{ background:var(--soft); font-size:.85rem; text-transform:uppercase; letter-spacing:.03em; color:var(--muted); }
+  table.resume td.dates{ white-space:nowrap; color:var(--muted); font-size:.9rem; }
+
+  .contact{ color:var(--muted); font-size:.95rem; margin-top:4px; }
+
+  .skills{ list-style:none; padding:0; margin:14px 0 0; display:flex; flex-wrap:wrap; gap:8px; }
+  .skills li{ background:var(--soft); border:1px solid var(--line); padding:5px 10px; border-radius:4px; font-size:.85rem; }
+
+  .note{ background:var(--soft); border:1px dashed var(--line); padding:10px 14px; font-size:.85rem; color:var(--muted); margin-top:16px; }
+
+  .autobio p{ margin:0 0 16px; max-width:70ch; }
+  .autobio .byline{ color:var(--muted); font-size:.9rem; margin-bottom:20px; }
+
+  footer{ text-align:center; padding:24px 0; color:var(--muted); font-size:.85rem; }
+
+  @media (max-width:600px){
+    nav ul{ gap:12px; flex-wrap:wrap; }
+    .intro{ flex-direction:column; text-align:center; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <h1>Cole Lilla</h1>
+    <nav>
+      <ul>
+        <li><a href="#about">About</a></li>
+        <li><a href="#resume">Resume</a></li>
+        <li><a href="#autobio">My Story</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<section id="about">
+  <div class="wrap">
+    <h2>About Me</h2>
+    <div class="intro">
+      <img src="data:image/jpeg;base64,/9j//gAQTGF2YzYwLjMxLjEwMgD/2wBDAAgKCgsKCw0NDQ0NDRAPEBAQEBAQEBAQEBASEhIVFRUSEhIQEBISFBQVFRcXFxUVFRUXFxkZGR4eHBwjIyQrKzP/xACTAAACAwEBAQEAAAAAAAAAAAAAAQMEAgUGBwgBAQEBAQEBAAAAAAAAAAAAAAABAgMEBRABAAICAQIDBgQEBQMDAwUBAAECAxEEEiEFMUFxImFREwaBkTIUUqFCI7HRM3LB4WIVJILwY1NDRJKiNPEWEQEBAAIDAQEAAgIDAQAAAAAAAQIREiEDMUFREwRSMmEjIv/AABEIAoACgAMBIgACEQADEQD/2gAMAwEAAhEDEQA/APSgE81egwAyAANAIBkAAAGQAwRqgAChggDRsGg2RBFIAlGjZM0NgjAwAgAYUINAGQ0AZMzNDIa0elRkN6PQMNab0egZ0bWmtAwekmmtAi03pJo+lRHo0uhoEQ0l0egRaGkui0CPTKbTOgRaGkhaBFpnSYtKiFnSbTOgRaZ0mIVFpnSbRaBBoaS6LQIdM6T6LQINFpNotAh0WkvSWlRBplPpnQqJjSaYZ0CYAMKAAaAAFCBhAgYNBAwgRgLEAAUABpapA9DTIAYAgZKgMAUz2RiDbTJqGZGAMAAAaBg9NKoMGIDPTWgZ01ENGBNaNrQFprRxDShaPRnoGdDTZ6BHoaSaLQMEk0NAjLSTRaBFoaSaLSoiLSXTOgRspNECLRaS6LQItEk0WgY0TRAxokhaFRaJJohGC03olGNMaSkCHTOk2mJgCDQZaZ0emgDOi02AYDQBnTWj01oGNDSTQQR6PTegmxjQ0kAI9HpsIMaPTWj0DGi0kGgR6GmxoGdDTej0DGhpJo9KItHpJoaERnpJo9Aj0NJdHoVFprTej0oyEmj0IxENabAFoz0egJrR6aAohoHoBDR6MAZ6PSoy1prRgzotJACPQ0lAIdFpNotAh0Wk2mdAi0zpMSiHTOk2imAQaLSbRaBAEumdAi0zpNpnQItFpLotAiDemdAxotJCBFplKzMKiMphoAwNGGWwDAEDAMBogNooNmgACAMGABgCMGAMGoWiaAMBoANNE1oCPR6a0DGj03o9AxprTR6BnQ03o9Aj01prR6BjR6b0ehGNHpvR6UY0em9NaBjR6b0egY0em9NaBiGtN6a0DGmtNaPSoyG9HoGBpvR6BHoaSaGgR6GkmhoEeiSaLQI9M9KXRAh0zpOzpRDotJNFoEWi0lLQIdFpLotAh0Wk2mdAh0WkumdAi0Wkui0CHRaTaYmFRFpiYTaLQK4AZbAAAAACAANAAAYNgABgDgjAwDUBgAAAAAPQBvRRDYFpoHoCPR6aBnTWjMCPRnoCM9HoGdNaa0YFoaaPSozprTejBjTWmz0DOj03o9Azo9N6PSoxo9JNDQM6GkmhoGNDTZ6BHoaSDQiLQ0k0NAi0SXRaFRaLSXTOgRaZS6Z0owzpJogRaZ0mIEJJdM6BGzpIWgREkmGQY0ykLQiKYJJMM6BHotJCBQANGyBgARkBAGBmRgYBsABwYAGFADAAGYAmgBaa0ejANBoCMzAj0ZgDDWgIzaVCBmBHprTWgLTWjAAzagC00GgJoabVC00DAAzEI9G0DGjaAM6GmgDJabGgR6Gm9DQItFpJoaBFpjSbRaUQ6LSbTOgQ6Z0m0WgQlpLpnQqPTEwm0QIGdJphjQiPTOkpAiZ0k0QIiSMg5oARsAAARgCBgDMGABmyAwYAA9ADPR6Aoa0ZgQMADJoDPRtAWjBgTWj0YDRmABmelQj00YE0DAHo9NATQMA0NNKg00AIGg1oCMzAAAAAYEDAEDAEDJQEYBnTOmyBgmyBjTOkmiBFplMzoVFpnSbTGgRaZ0l0zoEUwzpMzMCIdM6T6Y0CHRaTaZ0DigBGwD0YMgyAHBNwBmDAGAyAwYAw0AaIwAAAAGAbJqAODAA2iaAzAVA0STQE0ABsb76hR5PLpx496dT8vV56fFZrf3e0fG0TAuns2oeEyfccY5iJikTHnO+ybH4/1am0TMf9p0ar3AcXF4livETvz+MS6NOTjv5WhUW2tMRO0sIAwFQ2ibEBgADAAAzAgejBkNBQiaAMk2QMk0QEDICJoAyTRAwTbIMs6SECLTOkzMwCLTOkui0CEtJNMzAI9M6SkDz4MI2QMAQAANQy3AGYAAwbIDBgZkYGAAAAANFDYCGyMA1oNAGiNUDWhEGBnvSnm5NcH6vL5vOcvxqtfdxzHtF09Nl5OPFG7Tr2vJ83xX6nVTHadT5T5TH4vM8nnWyzM9fVPt/zcyMt7TrylzuTpMHQ5PNmZ/uX6re3arS+7xuNbRxXHh3ae8/FD9fqn6k9tdoZ+uutHOGLW3byifzLJntTynprBTmiYnfn6IbcWckdVrfGFZsTYfE5pMbjcPdeH+J8fPWIrNd+tMkan8JfOL4JrEfE+N1Y7Om3O4vuWHJSf0zNJ8+mZ3WfZLqUvvXd8h43My8fXvTam/Ke+nvuFz8OasRM6n5JuVLjY9Q0p/XpTVd9Uz5R6yuw2509NACAwYAAwBk0oQMAAAABkBAyAiaAMk0QMhogImiAiaIGdFpoAxomy0DGmdJCBDotJWZgEWi0kIHmgZo2yGmQBGQG2zDQGAYGZGlDMjQMwAAAAGDA2oJsA0DANA1QGRgNqmfk0wVmbT2hLntNaTL5v4vz796xO4PinzvFZ5N5ivasfOXHt9HfVXNWdx73fvDzX7iLz70zFfg3m1HTNLx5fLU/i53vt3nToZr8eazqZlWpyoiPd25dskynw1mWXSLs55tPyV8+asxqLN5Mc17ufNJmdfNYljrYJ67RPn2dXqrXceukHH4t8VNzHeVDNf3vYGnTyX6tb9PJJ9OtdWhzKX6/X81iuTXaZ2xtrTq9E63Wfw+Z4eTNJ7zaIifOO01QY8k6+At02nqiJi3+JtLH1XwbLjvj3F4vMx5z+qPx83p4fEOFycvHvF6TO484fVPD/EsXLxx79Yv61ntO/wAXbHKZR5ssbHdNmGm3IwABgNAeiMwZPRhQAAAAAImgDAMgAAAMtAGSaIGQYAiMARNMyDJNEgyUmSjEspWAeZACNgjAMgwBtMtAGmWgM4I0DNlpQwAyAAKhtQTQNQ0TSKGiaVAYAHDWiaBVzRbpnWvx8nx/xvcZbxqK79Incfg+o+Icitaxj6vP9X/yHyvxzlV7VpWnlvcRr8O/cvxqPDWm0St0y/UrFbRMT6TCtM7l2uHxuqPqa9jOnSdoqYenvbyW8V+PX+vTo24ddbt5z6K88HFPp/Nnp27VsuXFaNVvH4s4MVpyVmNTETtFk4OP5z+LNMWbBMTEzMLqG69nW89Exaert+TyvKraLbh2MWSbV8lDkZK17I31pQwxlvOqxEfF3MHD6dzaeq3x8nBrz64p7VdLF4zTq96swXGpMo6MbrbU+S1WKeepmPh5wozycWaOqlo38pSYeTjtOot02jzrbyn2S46sW6dLopkjqpML3Dy3xX71i2nL66R5a+P/AMhJW256omY+MTG02mn1LieI471iJ3WflMS7sTt8u4GebZadMZMkx59c6rD6LgzxmtPT+mO34/5PVjdx485qrxkbTmcNFBgDZhoAAFAAAAAAAAAy0QEAABGAJloAwDAMgyAABBkmiBllsgYBko8sAEbMAAQAEDTLQpmRgZkYBploDACIDIwabhlsA0TQGZNAADA4aITG415A43iMzjp1xqsRHedRP+L4t4tf6uWZ97v6zGt+yH2nncXjTjn6lrb9N7tP5Plvi/05tWmOs6je7W/Vaf8AjQ1HiK03bT3vDw9GOvseZ4/H6s1Y+L3dMcRGmLXp88XH5F5rPalr/CHE5nK5GGkWiMcb/piNzHtl7OcdfkoZeNjt51iUxs/XXLG348Zi5OXLXqtWI9jscbd5j1iXRjg19IiHW43ErXvryW5QmFXuN4d14bTrvrbxniOKK3/k+yeF4P7Ntd5mJfMPE8FpzXi0d6zPZnGmePTyPRT+GFiMOL5Qiy8W/va3Py+DnYqcmuT3rWrHx7u8n/bz3r8duMdY7R2c3lbpaNyt4ckzOpjU/wAk3Lx1tXcxtirfiHjZskT2t2+L13DmmXXXj6vn0+bxmKkX7V7PV+H4c8R145tM79O8udx7Tl097weBFo8snn5dtfjPZ7XjYfo008v4RXkWt/cyZPP3q9Gu/wCPo9m6SacMrszI2mDg5ZaAQ0y0AACgAAAAAAAAAAETTIAAACMgZBkgQMlCBkgCMgZJtkGSMlHlQAjZgAQgAAaZaFMyMDaZaAGRiAyNANQy2DUNMw0BtMtQBtEYAyagDaIweG8fv4hgvW+DJ/bntaPWPjDw9pycms3v5b7PrXi1Ytwsu4idxqPbL51XBkyUtTBWJ+nHvWt+mvxZyevxkuNtc7g4dZJmY8nf3qFXFj6POYtOu8x6ymlzrvj0c22WiK14pHdHRNWizGWmPVZ/Fy65b3rMxGvk4WTh8meRGb681796+nsJjtLdPp/E8Zw8eJp2iJ9Xm+ffHn5H1KzE7nvp4zlZs0dX0+8+m/Jjw/lZ5mYzxFZ32b49OXLt6W/G33iEUcWtv1Q6FbxNYa3Gtptvi5tuBj3Hxczm4Jpjn4O5fP5R6xKvy9Zcd5+DUcsp08hxN1vO/J7fw3rpfqp7+tT0zP64+Xt+UvJ8amslt+Uw+heFcPLGXrpqfKa/KYiF/Xm/H0nibnHG62r/ALvP8/VfV8UzNY3Gk7o41oEaIZkANpkA2CMAAFAAAAAAAAARkAAAERkAZaICIyAEZIAAARGSjMkZA8oAEaMAACMgMyMDaZaANEYAAwBgIG3BNQBwYMDaJoAYAGZNAcGUGDjeLxaeNOvLcbeN4GSeFnyWt7+LJGr1/wAnvebN4wWilIv1du/p+TyOfw3Pi4/1r9Mx52rHnWGbt6fPKauN/XG66Wz5JxxMUnvET6NoKxFbp583O9vROiVM2p8/JbczlTPTMQi7T/WjURT0VckzeNRNfzeU5fPyYdYum9fnqPP8UuK2O9N2tkrOvlt1mLO3XtitXvMJ+Pjpe25jyecnJ0xMxnn8drWDnb7TrfpPzXVYexnVfJHe8w5WDlfV7fJdvbcOeu3Tl0gveZlLaf7M/FXiNymtMzauOsb+Dcjla51q26ZtXtrW/Y+wfb+H/wBDgyT52rud/OJ83kf2PH488etbTaOVjvW+O3eaTHrHwl9G8Nx/R4WCn8Ndfk1OmPT/AISurDTENq8hgADAAGZAGjZANhgA0bJqGQIGiLYAyBA0RGgCMlAyZIAjIARkAAAERhRgmmQeUANGgAAAAAGRgZstQDRsnAGYNAGGoA4aBgZk0BtEYAyMA0yYNQbJgavycUZ8GTHM6i1Zjaw4HieflUpP0I9POfJYPmfimeeNzccxO4pqtu2on0/wdmfn83ifE78nkZum0Umd9+nyj4zL2GL/AEcc+fuR/KGM49Pla3MqnT1W7p9nEOTuqZuPjtG5rG/Y4tpx1nyiHqJpFlLJw8NvOGpW5Xm70wX9IlT/APH1tO6Wmr0FuBSPIvozRuZJlpT4+OcU93Qm21eW4PrhtaxfP5IcOe+PkRlrHlvS7jwzkp0V87dnpPDPtyualb5sttT6UjX85ajFsn1JxvqZK1zxjxzkvqvVa3esfKlH0XBWaYqVnziI2ocXw3i8TU46TNojXVaeqf8AKHUGM/TlJJ+NmyY4NmzBqGbJgZkAaBADBADAJQwQQMEagBBAwQAyAAEAAIyAEAAAAERkoRGQPJmRo0ADAAAAAADTJg2ZQ0AMNIHDRQ0BmRgbTLQGZGAAAGCANGw0BqfJwRmpNZXC8wfOub4PkmLVw4opGveyWn/CFWuKMeOuPz6Y1+T3XNxdVLTa9umI3076Y/GXiuqLd48mcnfy7czJ1Vnsjrm+a7eFG1GXa9LH7iqpfkx81HPEx5OTa1jScnfjlRDVs8Xju831Smrktrza0nN1J0lxxuXKrNpl0sfZWNvZeD4K5ss2mddMah9CwVjHSKx5PD+A8bP1TlvPTj/or6z8Ze5ht58vq1DavEpYlllIbJg20w0BmQUMyAGCANBkAYIAYIAZkAMgAAIAYIAYIgMEAAAAEAAIyUJkwDygARowAAAAAAAZkYNw0y0BtFDSBtMtAGmTA2mQDRstAYIAYAAAAHD8Z8Vp4TxpyzEWvbtSvzn/ACfEOd9zeJcm27ci9I3+nHPTWPy7vb/evX9TBvfT0218t/8A+PkGXBa9txMO+MmmLe1u3jHNntHIz9//AKltf4vq3Gt/Yx7/AIK/4Pi0cbJFo8pjcb7/ABfVsPP4sRWv1qb1Ea25+k66ejws3XWsgmrfVuNx3Z2872fVDLj24+XE9LOpUstIacri83NJSVqu3rDMabctFSq5RDWBe3TW0/KJGtO7xfvjj4JjBfiXiuP3Oql4nevXU6e38P8AuXwvxG3Rjy/Tv/BljomfZPlL8uTeeqZ36y63Cy26nbjHit7frWJSxL579qeK35WO/Gy2m1scdWOZ85p8vwe+iXOzTSxEtoYluJZEpsmDZsNAZkFDBADBADBADBADAAAAgMEAMgAAAAAEBkCAwyAMgSgIEDywARowAAAAAwADUBoDMjBqGmTBpphpAwABmQAzZMGjZNAwQUMEWwee+4OFHO8Oy16d3pHXj+cTX/N+dM0zWX6e5maMHGy5JmI6aWnv7H5n5doyZLW7e9M2nXaO8u2Pxzyc760wjjLMFaIiUenSMvSeE+KZcPIrjvaZxX93U/0z6S+gdb41E69sal9J4nI+vx8d9/0xE+2HD0x/Xs8c/wArtTkVMmWUPWU93KPRahnuKx3bOsNMJY8lXkT/AG7/AO2f8Fryhz+VeK4r7n0mPzXH6t+PntKdc/D1djjzxor/AFxPr5bUb2pipFafrn9U/JWrMxL0Pm36+k+A8yeFzcGTq3WbdMz86W7S+/7fmXwPDyebyKcfDE23MdU63FI9Zn5P0tjr0UrXz6YiN+yGMmosRKSECSHFpNEtwihuASGyYNGyahgAAAAAAAAAAAAAAAAAAAAAIAAC2AIEAAIAAQAAA8sAY0AAAAAGZNQBtEYGAAMyANmzBoNGyYGAAMEYGbKLLmx4KTfJetKx5zadQmhMjy5ceGs2yXrSI9bTEPnnif3dGPqpw6xP/wBS3l+EPmvN8U5PMt1Zstrz8Z7R7I8nSYMcn2Dl/dvh3H3GPrz2j+GNV/OXlM/3ny8m4xYsWKPn3tP+T5t9TZdTpMYzbXX53inK5lpnLmvffpvUflHZ569tyltKnfbTKG/mi21LCgeq8D5ER14Jnz96v/MPKJ8GW2DLTJXzrMT/ANGb3NN4Zcbt9Lah1uLHD5/HpmpEx1R36Z/Tb1iU/wD4/FPlltHtq82rHs5yuJEJIjTsR4f8skfkc+Hx65f5f9V03yxefvb8HjfEeb9S3TX9Mfzn5ur43zcOKf2/HyfUn/8AJb0j4R/y8VMzLrjjp5/X0/I1vbveEcTByuXirybziw79+0d51/1cCvm7vh9vf7fJ0eR+kvDcHCwYKxw64q49R3prv7Z89+12ol8F4HiXI4GTqxXmPnWe9be2H1Lw3x/jc3VMkxgyfKZ920/Cf+HOx0lesbhHDTm0nhuEUS3CCVpG0DRsmDQZaUMEAMEYAAAAAAAAAAAAQAAEAIAAQIACAAAgABA8wZGNAAAAABtMmCQEYGAEAZADMgDYZaBo2QDQcnm+KcTgR/dvHV6UjvaXzrxH7j5XL3TF/Yx+Xb9U/j6NTG1nb3fiPjvD8PiYm0ZMnpSvf859HyfxPxfk+I3mclvd/ppH6Y/zc227TuZlXtV1k0xaoZLqe9p8tVRtlPB7QblJCocq8pbIxVW1US7MIbVRFcNTDIrueE+KZfDc0Wj3sc/6lPSY+cfGH2rBbFycVM2Kd0vG4l+eofS/tPxCa9XEtPa3vY/hPrH4sWOmNfQeiHgvuTxf9vH7XBb37R/ctHnWPl7Zew8R50cHi5Ms+cdqx87S+FcnJfNlte87tadzJjGsqqzOwR6mW3E4dXg26MuvnCjWmoWsXbJX2qPTUnvpPFppKpVYv5bZHtvC/uLkcXVMszmxfKZ96vsl9O4nO43Op1Ybxb51/qj2w/PFbadPj8vLgvF6Xmlo/qrOpYuLW36EhLD5hwPunNWYryqRlr/HXtePjMeUvoXF5eDmY4yYLxev84+Ex6Oeq06ENooluGVbNkwM2TAz2yahmyAaNkwMAAAQAAAACAAgAAIARGQAAACDIGQIHmwANAAIAAwJojBsyMDAAAAAYIwM2VbkcjHxcVsuSemtY/P4Any5ceGk3yWilY9Zl8/8T+5txOPido8pyT5/+2HnPFPF8vPyTMz044/TT/mfi81e23WYudqxl5Nstpta02mfOZncyp3zxXyVb20p2ncujDqxlmUdro8XerNwVMl1KbNZZnaOtdrET1TlSrVo0ohmWTYmUVopjYg0EE1RTVbLpXYgirueExNedg96aRuZ3HziJ7fioRV2fCo/9bg7R2tMzvy/TLNWfXqvuPLXLhxdFt13WuvWLTXczP8Aw+dZcMzPbyh7fxTBj4/Gx0pPVF8/VMzbqmJ6Z7efl8nA3EeaRrL689XDM+k/kl+lNPR3ozU8u0JOmtvlLW2HAhc4+GbXi0xqIdSMVI9ISeShwsx3qrJ6yghmoi0wnmNoJgFmmSY8pdjhc/NxckXxZJpb115T7Y9Xmtykx5ZB9r8P+5sOXVOVH0rfx170n2/J7OmSuSsWpaLVnymJ3D84Y8to8nd8P8Y5PCtFsOSYj1pPes/gxcWpX3eJacLwrxXD4ni6q6rkr+uny+MfB29uLbRkAMyChmQAzZMGgyAaIgDREAABAZAAAQAEAAIyAMgAQBA84AEaAAAGDAANAZgAYAAAAAAAKez5R9weK/u884qT/axzr/db5vZ+P+Ifs+LNaz7+X3Y+EesvjOTJMy64z9YyatbaJjqDo5obxtQt2l0Zc/J+oFvBPuyd57I8Pak+07d4EUJjcpa0biqasLpRrTNk2tsWhVUZRSsWhDIyUNsQkiGVOI2mijVKrcVBB0tY8v0J6orFu011O47T284T9KOa9pBJPalafSjFE3i/a9rb7a9fJqlY3MfFJl7xiYr+qfai16PwrwrFy7Wz556OPgti/cTGonpvbWo9fnuY8lnx7wzD4by4nj7+hnr9bBWd9VMczMRFt9/TcfAvDOTTj4OTN8f1uucVPp9da7r70zPvTEa3pZ+5OZHL5HHmtomtOLgrrcT0z096TPziSfVeW23ixZc9pjHSba89I6r3D50cLPWbRM0m1euNb6qb71/GG8db7+MieFyK+eG6DU0nVotX2xMPeV+4vCLTk/8ASZ8fVa3RaL9XTWY1Huz8vOY8ly3I8F5dI+lzPo2vaY6eRjrfprGv16jtFp9Y7un/AJX/AGi9PnUsPZ+K+Azx8E8jFNZpEdW6bthtH/Zb09kvFueWPFEFkUT70rFoVY/UyL2OdS3e3Tb+avEsZ7e9X2A73h/iGbiZa5cVtWr+Ux8p+D7t4bz8fiPGrmp7L1/ht6x/k/N+O2nuftzxX9jyoref7WXVb/CfSzGU21K+1mxEtOLbQIwBkFDNkwMEAMEAMEAMEAAIAAAABAARAAQIACAPOgBGgYMCMGBmABgGAAAAAACmdRs3mvH+f+z4c1rOr5fdj4R6ysmx868e5/7vmXtE7rX3a+yHk72WcttqF5d3GnFk29qO0kWVla25+btK3FnP5Ft2iAW69qxDaJPWNqM6S1g4q3rSqNIrwl2UiKk12hmi7pjSNKXQk1pY6RNUQsa7CjE6lcrPYG0Nv02So7fpt7ASZZ/0vwYp+u3tGb/8f4MU/XYFq0R5z39EkxrUIZ/pTWkDjyRz5mxIDem9ohsHSx8zk0w2wVy3+lbvbH1T0b+ekcIKy2Icqc9rLsqd/wBQqSJQXt1ZtfKISRKLX9y0gtVmVql5hUhrq0D759u+I/v+FWLTvJh1S3xj0n8nqHwv7Z8Q/ac/HudUy/27/j5T+EvubjlHSNNbYNhWzYNRoEAMAAAAAAAAAAAQAAMgZAgABACAAAMqOADCNAz0aKWjBiEYMAAAAAAAAC8nxjx3nzzOZeYn3Ke5X/mX0T7g5/7LhWis+/l9yv8AzL4tNt7dcJ+sZIrKF5X5UM8adHNW23Fla0oos1pHR63P31ZY9sJevsgp+uPag6ke9K3WqritC3bJWsCtzMUVpy7nzUc3I35IMUzawO1W220FeyTYGIElANAFKCredWWqeSpl9E+Oe0AssT5T7JaOsb37JBnLHu4fyRUn37+1by1/t4p+O1Gk/wBzJHx2C36wlnzQ+sNzINo5b9EUgzs4YkwWIlvqV6ylETRKG/m0jsDEpEXqzORVSzKKbopuixT13n4A7nHvNZrMecTuPwfpDh5v3HFwZf48dLfnD82Y+2n3T7a5MZ/DcdPXD7k+z0/k55fG8XrDZg3Fo2mDUaaYANhkA0CAGCIGgyAPZbBAewRAYIgMgABAgBAKOGDNGjADKgA1QABQABAAAAUm8/45zv2XCvMT79/cp+PnKybHzf7i8Q/d8u0Vn3MfuV+Pzl5LbWW82tKHfuy9DjW4lHlr117IZtpqmSBlzbQrS7ObH1RuHImO7UGRHaSJFTfUtDE3tbzlkgOI262DD0xv1Q8fD6y6W9AU9iOSRDEEBUqOZLbIIsiXHPZDk8kuPyBZiW8XlPsliGMVu0/iC9l/0qeyHL8s9/ZDoWn+zX8HLtP9+3sgFuLe/CXapT9affeQWY8kVktfJHaO4IZkj0yDUdlqk7VEsToFn1R28xFmLW7CI9qPUs2ntafhLnUt7qiW9+msyu8THNce587d3NrH18taR5R3l3vKNKJo7Pon2nzfpcr6Ezquauv/AH18v5PmXX3driZrYcmPJXzpaLR+DFaj9GtbUeJyacvj481J7XrE+yfWFuHCuiQM7aAwRgYIA0GQBmyAMEAMiAGCAAAAC2CAAiAECByNGDZbAAAAAAAAAAAABUKZfIfufnfX5X06z7uKOn/3er6T4nzI4fFyZfWI1X/dPk+Fcm9r2mbd5mdz7ZdcIza59pOPJmRHk6OTFqufa00s6ijyKeqonx5Nwq56attBjv0ysZLdUQsFCSasylULWGm53KqtUyxWAdPqivkUWc+cu2q5O6I6RoaWSgATMyKcyxtiZESAyeSfF5ILeULNO0AlVcdu0/immfNSrPbYOpadcevwc3e8tv8AbDoZ56cHTE9txDkRP92fYKt0n+4n370qlZ99Y374VepLd0FZWJ71EU5RpZ82NbAj2XkyIl6mJnaObI9qHknppafg5fXqNQvci39r2y52Os5LxX5yo6/Cp0Um8+dv8E98kyPKNR6IprsVNjibS7ePs5mGroROkH1L7S5/+pxLz/34/wDmH0R8F8K5X7bmYMv8N4/Ke0vvMTE948p7uOUdGm0bTCthkwMAAAAAAAAAAAWwBkQAEbINBkKGyCQAIA5YARsAAAYCBAAAAABSaDNkjFjvef6azP5QD5v9zc76maOPWfdx97f7pfPM1u7ocvNbLlvefO0zP5uPkemONRTJxPZEe9Ky1ElljdZYiUvnAOI11C8dNphhdoZAIoAABLj82OmZWsdNAs1S7QR2SbUb2yW2UCbhhJANSnidIUorM+Uu34f9t87xLh25ODo93eqTOpt7HMxYb8i9cdIndu3b0+L6rxb/ALDBjw1nXTHo55Z6enw8f7L38fH882phrW0TFq26bxPaYtHnDm1n35l6Hx+8W8Qzz6Wms/Deu7zlf1NS7cs5xysWq39+Fjq99zN6vv4rVLblpix1scrkeSjTyW6SMobwh3pZyQo2kGmUfUcWATDDcyw0ityZ7Uj2tcSupm/4Qh5He8R8F7HHRWKirPmtVrVUiYb6xXQjTXXEOXOTTH1hHbx5I2+6+A8+OdwqTM+/j1S/4eU/i/OdMvd777Y8U/acytbTqmX3LfLv5T+bGUaj7ebJuDbRsmDQZMGhtgwMENgYLZAYIAZEAABAYIKAgAABIOYABoGDFIAmQAAAAQB5v7gzTi8Pya/qmtfwl6R5H7n1/wCPn/fT/FqfUr5LeFDLHZcm8IpiJd3FzSlNek1QyqIurSeltql5R1yaBvk11aJ+aks5r9WlYAAADVY3LKXHCizWE0MVhLoojkitOkfWgm2W0XU1EgnhJDFIm2oju9z4X9r8jl6vn3ip8v6p/wAmcspi7Yedzuo8fWsz2ju9Fw/AuZydWtX6WP8Ait5/hD6bw/A+Jwv04Nz/ABT3WuV/bie/b5PLl7fw9+H+J/s87xuFxODj9yN29bW85lz8uT3plZ5Gbq7PMc/k9Fems95cpvKvXePljb8eV5/18+fLaO9Zn5/Jw5iay7s7ncudmpu23vnUfEyvK2sUrW3ddrije1PHERPm9Hx+Bys9YnHgy335ajt/Ndpxt+S1VjyS1lb5PhvN4UROfBfHE/1T3r+ceSjEk7S42fYsz3UMldLsT2YtXasORYRKxeipPZUWfOGCpZuyqp2/1vYlnNEKFp3aZYQXf3HwEZ5mVI1iOvE7K9ZjyUaZJh1MU9ah4sc2djBWaTEwhjVdRC/iZqx9+8N5H7nhcfLPnbHXftjtLpOD4FScfhnGifPp3+c7d1wv11MyDI0CAGAAAAAyAAAgBkQAyAAAAAAQAtggc4ADQMgyoAAAAAQAAny/7u8Q97Hxqz+n3rf8Q+nzOofnnxvk/X5me+//AMlteyOzpgzk4t8s780EcmYlBqbiMNp8nfTkvV5ceqWLYsilHEySuU49MXeZ2iK2fBaO9e7my9B9Svkgy4aZI7aiQcUJL47Y57/mjAALOHBOWflX5grrmHFaY3qV+tKY/KqbrVUFcVvk3OK0petqLiK37TfnbR/sI/j/AJLfUkiyDn/sun+qFzi+GX5eWMePvPrPpEfOTmdvpngXA/b8eL2/Xk96f8nL0z4x6fHz51L4V4BxOD03vH1r/OfKPZD2MZteilFI+Z9dMcx1z5vn3K5V9jDDHCdOlHJ+C1EUyR72OJ9sPLZvE64LaxxEqv8A5jLPrr8V41rcenz+E+H5v1YKxM+tZ6ZeL532dxslurjcq1J9a5Pej8JWreL3mNTKjPito9XSbx+OWfHOarnf/wDFcif/ANXi/wD2uvh+yODXU5smTJP+7Ufkhx+IzNu9tfi6VPFuj+prlk5Tx847PE+3/DeHEfT42OZ+doi0/wA3TtxZ3ExFa68or2cKnjWP1mHQx+M4J85c7yv8u+Mxx+SLd6Vy1nHlrF6z2mto3EvmvjH2rOHqzcD3qedsXrWP+3/J7/J4hhyT7nc65ur4JjllhWfTzx9Pr4FqY7fLtMese2G3vvuHwiLxPL49dXj/AFKx/XHz9sPn1bvfjnMo+T6ed87or1252Sjt6hVvSJdHmcXyS73DeSnSrxOmhz58yBxOmVSRjvbyrM/gf07/AMNvyT15mSsa7LmPmxP6ob2KOPBe/pLs4MP047nHJr8Gv3NTaLVY2u4/Vyf3MLmDPTff17MUfo3iRFeNgiPTFT/BccTwjm4eZxMU47xa1KVrevrExDtON+uzYZNkMAADIADIAZAAAAAAAAEAMiAAEShkRAogBGgAEUABAgCAyABV5N+jBlt/DS0/yfmzk9WXJPxmZ/N+iPE5mvA5Ux5/Ss+AZLVw7tPn6O2Lnkipix4q7v8Akivy6V/TEOZlzWyz8BjwXyfCHbbmmnl3nyZ680+k/k6FMFMUeW5Q5OT0zqsCqPVl9Yn8jjLaPm6FMmW/nERC5WsfKEHNreMkatCpkxTWfd3MPQz0x6Qh3G/IRx8fFyX846Y+LrxEVrFY9Gpsj2isyi2mQ2aBtvqVplqJRFyJS77KkSc2RV3j1+pnx0/itEfzfZcd6UpWu/KNPj3hdevl44n5zP5PqNKxrzeP3/H0/wDF+Wr1uRMeUuNysl7Rvc9nUpgtk/TG2r+H8q/li7e2HmnT3PEZc94nvtTnLl9K2l7qPBuRef8ATivtmF+v2/k1ucmKJdow8HxI/cz0WyfSv/T1R2n8VTm4+Vwbf3sdun0vXvV7nL9tTedxyKRPwhNTwjn1r0TysV6fw3jbe452V8xrza/Naryuv5vZcj7TtyO8Tgp8+jsWD7Svh88tZOme3lq2tb5rEWyV+b3OPwPBj/Vl3PwWf/EcafWTpvt4nj8nNGSPN7OmaJpEzOpc/PxsWDqiseXq5PRfq6onsxZK3Nx6n63VExrcT2l8h8U4/wCz5uXHH6Znrr7LPotM/RHd4v7imtuRivHrjmP5teXWTzf5M3hv+HCi59SrWR1Pa+StdrR3hQy8SZ/RMfisRZJFgcmPD8vrNY/mc+HZYjcTWfh5O3E7SwDyNsOSk6mswzNJh66+Ot/1Rtzb2thnvjia/OI8mojg7n4pa48t/KJd2s480bpFd/LXdHv03NJ/ko481yY57xMLGPLMOhbr179YvHzjzQW49bR1Y538PVlHoPCvFs3BzVyY7TGpjcelo+Uv0D4fzcfiHGpnx/1ecfK3rD8t03Evrn2VzJ+pl40+Vq9ce2PNjKbdca+tBk3Fpo2DBoMmDQIAYIgMMgGgRAZbIgaIEobIIDIAFIEEaMEEAAEUEAICkbZtMREz8u6jyn3J4hXhcO2OO980dOvlX1l8H5WTr7beo8f8Qnm8vLffu1npr7IeNrWct/g749OdqXBh653Pk6cTHlCre0Y66hrF5bbZSZJmeyPHirXvPmllDa6onTRaIhTieyO1wWbZEUSrdR9WmRYtfQrbbm3yTMpcd2h0olHZitm57iq8iJYydkXWyyt7HUq/UKcixp6Dwu/TyaT7Xv8A9w+Y+H5dZ4e1jJ2eb1nb6HhdYvVY/FPp4+iNIo8Yz13q3Z5DJe2+ypbJk+cuPF6ede8jxrLv9ci/i2Sf6peAjNkg/wB1l+TUxS+j23/lMkf1T+aO3ilo/qmXhr8rJP8ARZB9fLP9Fl4nOvodPG709ZT/APnba83zmL8if6JTRXLPnEw3xif2V7qfHfmkr49X56eD+nYfSv8AJniv9le3nxLDk3ufMTyMcRusw8VFZjzlLGXXbZwh/Y9XOXqeM8bybz4435Vl18GaneLXeX8WyVnk9rbiIiFwx/8Apw9st4K1ZPapW8JYs9WnzVmJa6leJa2aRYi8wtY82/Ny+ouvRpXbm8I5ttzIybWK3VBbDXq6q+7PwbvijNXU+fpPq1PzFbg5M3y8a2rd4XKXpfvWemVvJSuWupcO2OcN9CO3elZiLzHt09z9nRH/AJHcemK//D5/xrzetqT6w+jfZWOf3Oe/8OKI/GZZvxvF9fNk3ndGjYMGjZ2YGCAGCAGQLYGCAGyAKACAABQAECiZBFMEAMgSBlstkAcfxjP+38P5N48+iYj8ezrvL/c9unwrL8bVj+axK+C8i0z223hr002izd7a+Kxl9ykR8HaOSleerJEOnrpq52COq21jPk1DaMZMukFJm0qveZdHHXphSNWnUKNrblNlt6Kewb3Ke86qjxxudlktuWVQtVnTJrEW6XW4nbmxOlqllQ8vkpLt+9ZUkC2WxJIq5xb9GWr3GK8TEPntZ6ZiXo+NyvSZc85t6fLPXT3XGvgrXvraPJ9DfaKvOxln0kfWtDlp6ucdyIxb/TVLrF/DX8nnJ5N4Znl3iE0vKO9ecceUQr9dY+Tz9udef6bT+DH7nLbypLWtm3poy0YnNjeei2e3wP6d/WTSWu3+4xI78mvlEOTrRba0nJam02ku0K8Wk9qzyO99Q8znv15Jl0+TniI1DiNYx5vXLfTUTMJ6ZfmrB024OpFj6nNi0w19SV+ovTZD1q/1JZiWhfqtVlRpbssRZmjo0tuEd+3dDWyffVANYr77IuRTqr8YQb6LLl/LfzhBU486tX2vtv2hxvpcXPmmP9XJqvsr2fFMUe9D9G+EY4xeH8Wsf/arM+2Y3LOXxvF24bRw04ttAjQBkAMEAM2QKYIAYIAAAAACgIEBkACiQCK0GQBkQQBAATh+OYP3HhnJp/29Uf8At7u4xesXras+UxMfm0PzLev9ypcqXa5/EtxOblwzGum069k94cLk+cu0cafH8plUzTuy3i7Y5ULd5WMnjjd4X7TqFfDXXcZZVVW07kqxuSXMVNRtAfoqpz3T5p76VwAABs4nRejC7RP9SZhCQNqAAgDiZjykgC5Tl5aeu1mvPvMxExHm5QTTczsfQYwVmkT28kHTT5Q8tj5+bHWK73EN/v8AJLPGvVPbF6TppAnoeXtzMkx2nStOfLP9cpxrF9Y9bOWkesKeTm4q+u/Y83OS0+csNTFi+v8ADszz6z/TIjmUcULqMf2ZO9+8xf8AyFPLzJt+mHNBqHOtTabTuWQFcwAAAAAGQagki2m/qSgC2i/ivuVyl3Owec+xPSyIsZfOJW6+9g/2yqW76XOPG63j5witcbF9TLWsf1WiPzl+ksFIxYsdI/ppWPyh8Z+2uB+559bzHu4ffn2+j7S55VuJm4RRLcObTZs7NBoEYoAAAAAAQAwQAwQUABAAQAAgCgAEUAEBkAAAAAjZkHgPunw/r6eXSP0+7k9npL5Jnr70v0dmpXLS1LxutomJh8M8V4U8LlXxz5edZ+cS6SuWUcSI1jczXd1Lfp0qdMbbYbr2hVvO5XFXS7Uq02sTOoYjshvbYIpncsgAAABkAAAAAAAAD0BGk+nMRuUbShLSu42hX611VEVbQiXbRuFbQiMz0QpABAAAAAAAAAAAAAFAAAW8HrPwSVhrDX3JlLSiomiNunxMN72ilYmbWnUR85lDiwzeYiImZn0j1fWfAfBY4kVz5o/uT+ms/wBH/Vi1uR3PCPDq+G8aKeeS3vZJ+c/L8HdhElhybSQ3CJuEEhsNA0bJopggKYBCGCChggAAIDIEBkRAZAAogBFAAAAAAAQBFaW5QWkEdpeU8c8Njn4uukR9XH5f90fJ6a0qV5JU0+F5sVsdpreJpMelu0/zVZo+2ZcGHP8A6mOl/wDdETP5uVk8E8OyTucHT/ttav8AhLpMoxxfJ5qjmj6Zf7c4X9N89P8A3b/xhXn7c4//AN7L/wDx/wAl2nF85msq00+MPq2PwPhY/wBUWyf7p7flC9HD4tfLBij49Eb/AMDZxfF5jTL0/wBxWr+8ilYiIpWI1ERHefY8w2yAAAATVx9XqCELX0Yj1Q2roEYBxGwOI6p06FaVx13KKsVwxufP5Kt7zedyCTJk6vYgAUSY69VodLStgr22tSKilVtHdalDcZqtLLcsIEABQAAAAAAAAAADUVmSh9k+3MfC8T8OrGbBhvkxT0TM0jevSd+aUfIYxW+SSuGdvud/tvwvJO/ozX/baY/kqz9qcDfa+asfLcT/AIwnJdPluPDqntdnheE8rmanHitMfxTHTH831DieC8HiamuOL2j1v73/AEd6vbtHb2JyXTz3hXgeHgayX1ky/PXavseqhClqxtpLCRDCWEVtqGG4BIbJg0bIRWjZ2BWgQVACMACAAgAAIAACAyIApggimCAGCAAExMgUyr2lJaVa8ghvKneU1pVrAjAIGLIpblHK7RGjlIgyTqtp+UTP8lR8h8VyfV5ua3ztP8uzlLfKnqyTb5zM/wA1R2cgAADUWmGQCzW+ynuKUSTkrXy7iaRxi33nsfXXH2p3n5obXtbzlgU5mZnckAAarHVMQyv4adEdU+aifUUrEIpttFly/JV6pUXtoLWR9bEyiNebM9i2QAAIoAAAAAAAAAahRl777T5v7fmRimfdzR0T7fR4KV7h5ZxZaXje62rb8pZsWP0qaDj5Yz4ceWPK9K2/OE7m2bUMtIqRqGIaQTw3CKrYJWmIloEsNI4bAzIAYII0YIAYIAAAqAFsbAwyABAgMgAUwQRTBADBAClHLUyjtIIrSq3lNaVS0gilDKWUEgTLTKiNFKRHKMsKPK7YMs/9lv8ABdlS5XfBlj/st/g1B8ezR3VHWvWJV5w1dnJRCzOKPRHNJgEQa0yB7mSAAAAAAAS06Y7z+R3yzZCF2AAIAAAAAAAAAAAAABkZumkZagHDIJhNi7WRpqQUfcPtnkfW8OrWZ39K01/Dzh6p84+0Mv8A/Yx/CtofR3GusM2WmVahIiSQglq2jhIDSRFCQGmoZAJTRtA1s2DFPYIA0GSBrZEQGCAGCIDIgBsgAqhgIrYYANszJEBSgtKS0q9pBDaVeW7ShApQyllCBMtMSqViUctsSIjlS5M6wZZ/7Lf4LkuL4vl+nw7/ADvqsLPqPnc+aKWrW0hmXZzJHY+qEcyBTCGYb2yqMA9DRpSBg0EAaBBJNUa0AAQAAAAAAAAAAAAADADQAAI0nxyrrOKEo9/9qZOjndP8dLR+Xd9afFvALdHiPH+NtfnD7S5ZOsMyDKttwiSQCWJSIUsINtwjaBIbES2BtMGDYZArQZANEQAwQAyIAbIAAAgMgQKgIIpggBsS0hmQYtKreUlrKsyDEkCkGJRnLKoTEtSxKIzKJJKOWhiXi/uHLPVhx/CbT/w9pL534/O+XHwpENT6leTyXnaHcp5xTNhOCfm6OavsbOazDIHsbILsa2GQuxoiC7AcEGRbrqYZ+mjpbSzFoVUE45QL9rxEKVp3KIyAEAAAAAAAAAAagMaCoCBgcRtepCClV2lSrHqPAcU38Q4+v6Zm0+yIfZNvF/bPB+jgnk2j3snau/Sv/V7JxrpEgZaZU24YSQDbUMmCaARoNNxKM4BKCAGZAUwQAwQAAEBggABADItlsRpkhsFYAI0ACBm0q9pbtKtaQR2lAcyyAYltiVEUkcsoyTEtSwDMo25YaGJfP/G6/wDrPbWHv5eH8amtuREx31Xpn2tY/UrzXTEIpT2VpdHNBdWmFyY2rz2aVAGyTSMg5gkAAAAAANbZCh7IBAAAAAAAAAAAA3BVjcrkUVFQnSjDDcYIhdjnVxzK3TCuRWIPaKxXHELfHxRkzUpvUWtWJn2yhju1WZrKK+84sdcWOlK9orWIj8ErmeG555PCwZZ85pqfbHZ03F0ahphsGoSQjhuAbahhsEhsw0gZkYNbaYANntjYBsMgGgyAaImQb2GDAEAAIEBggo//2Q==" alt="Cole Lilla">
+      <p>Hi, I'm Cole Lilla, a rising sophomore at Creighton University studying Accounting, and a member of the Dean's Honor Roll for Spring 2026. I've worked in fast food, retail, university landscaping, and this summer I'm interning at Omaha Public Power District in the Customer Service Department. Outside of work, I volunteer with Habitat for Humanity through OPPD's Rock the Block events, helping repair and landscape homes in local neighborhoods. Below is a short video introduction, my resume, and a business autobiography I wrote for English 203.</p>
+    </div>
+    <div class="video-wrap">
+      <a href="https://youtu.be/oadLTaCeHzg" target="_blank" rel="noopener" class="video-link">▶ Watch my introduction video on YouTube</a>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <div class="wrap">
+    <h2>Resume</h2>
+    <div class="contact">
+      colelilla@creighton.edu &nbsp;|&nbsp; (402) 578-4731 &nbsp;|&nbsp; Omaha, Nebraska
+    </div>
+
+    <h3>Education</h3>
+    <table class="resume">
+      <tr>
+        <th>School</th>
+        <th>Details</th>
+        <th>Dates</th>
+      </tr>
+      <tr>
+        <td>Creighton University</td>
+        <td>B.S. in Accounting, Heider College of Business</td>
+        <td class="dates">2025 &ndash; [2029]</td>
+      </tr>
+    </table>
+
+    <h3>Experience</h3>
+    <table class="resume">
+      <tr>
+        <th>Role</th>
+        <th>Organization</th>
+        <th>Dates</th>
+      </tr>
+      <tr>
+        <td>Business Administration Intern</td>
+        <td>Omaha Public Power District &ndash; Customer Service</td>
+        <td class="dates">Summer 2026</td>
+      </tr>
+      <tr>
+        <td>Landscaping Crew Member</td>
+        <td>Creighton University &ndash; Landscaping Dept.</td>
+        <td class="dates">2023 &ndash; Present</td>
+      </tr>
+      <tr>
+        <td>Sales Associate</td>
+        <td>Dick's Sporting Goods</td>
+        <td class="dates">Present</td>
+      </tr>
+      <tr>
+        <td>Team Member</td>
+        <td>Raising Cane's</td>
+        <td class="dates">1 year</td>
+      </tr>
+    </table>
+
+    <h3>Honors &amp; Awards</h3>
+    <table class="resume">
+      <tr>
+        <th>Honor</th>
+        <th>Details</th>
+        <th>Dates</th>
+      </tr>
+      <tr>
+        <td>Dean's Honor Roll</td>
+        <td>Creighton University &ndash; 3.5+ GPA</td>
+        <td class="dates">Spring 2026</td>
+      </tr>
+    </table>
+
+    <h3>Volunteer Work</h3>
+    <table class="resume">
+      <tr>
+        <th>Organization</th>
+        <th>Details</th>
+      </tr>
+      <tr>
+        <td>Habitat for Humanity &ndash; OPPD Rock the Block</td>
+        <td>Partnered with Habitat for Humanity on neighborhood clean-up events, helping repair and restore homes and landscape properties for local residents.</td>
+      </tr>
+    </table>
+
+    <h3>Skills</h3>
+    <ul class="skills">
+      <li>Customer Service</li>
+      <li>Retail Operations</li>
+      <li>Teamwork</li>
+      <li>Adaptability</li>
+      <li>Attention to Detail</li>
+      <li>Time Management</li>
+    </ul>
+
+  </div>
+</section>
+
+<section id="autobio">
+  <div class="wrap autobio">
+    <h2>Business Autobiography</h2>
+    <p>The start to our professional careers begins long before we step into the office or workspace. Personally, my foundation was created based on a combination of different experiences and interests. I have a history of working in vastly different fields of work and have also had a long past of different interests. My interests have changed over time, and some still remain relevant to this day. Today, I have learned through different opportunities and unique experiences that care and attention to detail, effort and the willingness to learn are extremely important and valuable in today's world.</p>
+
+    <p>I have had the opportunity to work across many different fields. I did a year of work in the fast-food industry at Raising Canes and still work in the retail industry at Dick's Sporting Goods. A job that many find unique is my job here at Creighton University, specifically within the Landscaping department. I have had the pleasure of serving and maintaining the grounds of the University for over three years. This summer, I have been blessed to have the opportunity to work as a Business Administration Intern within the Omaha Public Power District's Customer Service Department. Each one of these jobs has all been fantastic learning experiences, each possessing their own unique benefits and experiences. I believe having experience within almost every type of job is a positive attribute that an employer could see as beneficial.</p>
+
+    <p>Distinctly across every job I found many attributes and requirements to be common. These jobs require care and effort and also require you to have the willingness to adapt and learn new things. Within my role at Landscaping here at Creighton, there are several differing responsibilities that all require specific skills and knowledge. I am pleased to work with a skilled team that is willing to take time to teach me how to perform work efficiently and correctly, all to ensure that the Universities Campus is maintained. This is also something that I found at my internship at the Omaha Public Power District. There are many unique fields of work within the job, all of which I am completely unfamiliar with. I understand the need to show up and possess the willingness to sit down and learn, rather than try to attempt to work as fast possible and not do the job right the first time. I believe that is extremely important to have this willingness to learn, and the attribute of adaptability. To me, it's critical that job is done right the first time, rather than having to go back and redo the job again.</p>
+
+    <p>My work ethic is something else I value and have been highly regarded by. I believe this is something that I inherited from my father. Growing up my dad was always wanting to do the best for me and always worked hard to do so. He spent a lot of time at work, and having the opportunity to work at the same company, I have learned of his prestigious reputation and unique skills within the workplace. Specifically, looking back to my time in High School, I found my work ethic to be extremely relevant. I graduated with a small class of twenty-nine individuals. I knew everyone, and everyone knew me was the sort of scenario that I found myself in High School. I felt as if I stood out amongst some of the individuals in my class because I always strived to work to the best of my ability and always wanted to be present during class and understand the material. I strived to achieve good academic performance and always tried to perform my work to the best of my ability and understand the material while doing so.</p>
+
+    <p>As time has passed, I am now a rising Sophomore at Creighton University. Growing up, I never once had the thought of being at college studying accounting. In fact, during High School I had planned to potentially work in trade, specifically as an electrician. I also had the idea to potentially enlist in the United States Military. I was blessed to have the opportunity to apply and be accepted to Creighton University, which was completely different from what I had planned for my future. I initially wanted to study Exercise Science, wanting to work as an Athletic Trainer in the future. I had initially taken a liking to this field due to my interest in being active and weightlifting.</p>
+
+    <p>Within my first weeks, I quickly learned that this was not the field I intended to proceed in. I worked hard to understand and apply myself but decided ultimately this was not suitable for me. I then switched over to the business school, deciding to pursue the same degree as my father, which was accounting. I had always had a tiny thought and liked the world of business in the back of my mind but always thought to myself that the world of business was sitting at a desk and leading a mediocre, uneventful life. After starting my introductory business courses, I quickly came to understand that this was a fit for me. I found it easy to apply myself and understand concepts and really took a liking to my accounting courses. I look forward to learning and excelling within the business world and getting the opportunity to get practical experience in the corporate world.</p>
+
+    <p>This story is unique to me, and I value my college experience very much. However, my story is also filled with hardships, which have played a role in developing my character and attributes. During my first semester at Creighton, I found myself struggling in some courses and did have the idea of exiting the University. I was finding it hard to apply myself in courses that I did not necessarily find interesting or understand so well. I did have to have a conference with my academic counselor, and advisor to discuss my future. After having a long, rigorous conversation with them, I had the realization that it was ultimately up to me to do something about my future. I took it upon myself to meet with my professors to discuss my situation and ultimately developed a plan on how to essentially pull myself up to succeed. At the conclusion of the semester, I went from having very low grades, to finishing strong with a three point overall grade point average. This comes across as underwhelming, and academically not strong when compared to the academic standards of Creighton University. I had taken this experience and went with it into the spring semester. I took it upon myself to start the semester strong and try to apply myself and find interest within the material of all my courses. I was happy to end the spring semester with a much higher-grade point average, and academic standing at the University.</p>
+
+    <p>This story of hardships is something I keep personal but also view it as a unique example of how I have developed myself and my character in recent times. I hold myself to a high standard and experiencing these hardships was a major point of revelation to myself. I took this time and viewed it as a major point of development. My first year during college is a time that I consider to be a major milestone in my life. During my experiences in the workforce, and time here at Creighton, I have realized that is extremely important to display a willingness to adapt, and accept that there will be hardships, and the road to success is not easy. I have realized that this time is one of the most important things for me, as it determines who I am as a person, and that what I am learning now is important material and skills for my future.</p>
+
+    <p>Overall, my story is filled with many experiences and recollections of events that shaped me to be who I am today. I am not one to like to talk about myself and mention my success. I tend to humble myself, and find it appealing to listen to others, rather than boast about my own personal success and experiences. I have had many events that have led to moments of realization, such as when I realized it was upon me to better my academics and ultimately my future. Something I find interesting is how society has made it the standard for young adults to decide exactly what they want to do for the rest of their lives at such a young age. I have learned personally and been told that College is the place for learning new things and discovering new experiences and opportunities.</p>
+
+    <p>I am very fortunate to work for and attend a university that has staff that deeply care about its students. Both the professors and staff want ultimately what is best for the students and display a deep interest in helping them achieve success. I am thankful for the opportunity to have the experience that I have had thus far here at Creighton. I believe that my experience at Creighton, and in the workforce, have helped me shape the character of who I am today. All of this has led me deeply to care about my work, and to understand the effort that I put in, is what I ultimately get out of. I understand that nobody is perfect, and that we all make mistakes. It is extremely important to me to ask questions and ask for clarification and help when needed. Whether it is school or work, I show up with a willingness to learn new information and seek to work to the best of my ability to perform to a professional standard.</p>
+  </div>
+</section>
+
+<footer>
+  Cole Lilla &middot; Creighton University &middot; English 203
+</footer>
+
+</body>
+</html>
